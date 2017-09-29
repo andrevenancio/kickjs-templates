@@ -1,4 +1,3 @@
-/* global __VERSION__, __NODE_ENV__ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
