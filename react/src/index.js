@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import Application from './views/app';
 
 const lib = 'color:#666;font-size:x-small;font-weight:bold;';
@@ -19,4 +22,4 @@ if (node !== 'production') {
     global.window.version();
 }
 
-global.window.app = new Application();
+ReactDOM.render(<Application />, document.getElementById('app'));
