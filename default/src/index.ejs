@@ -3,13 +3,30 @@
     <head>
         <title>__TITLE__</title>
         <meta charset="UTF-8">
+        <style>
+            html, body {
+                margin: 20px;
+                background-color: #222;
+                color: #ccc;
+                font-family: sans-serif;
+                font-size: 12px;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+            }
+            p {
+                margin: 2px;
+            }
+            a {
+                color: white;
+            }
+        </style>
     </head>
     <body>
-        <a href="//www.npmjs.com/package/kickjs">kickjs</a>
+        <h1><a href="//www.npmjs.com/package/kickjs">kickjs</a></h1>
         <p><strong>project:</strong> __TITLE__</p>
         <p><strong>template:</strong> default</p>
-        <p><strong>version</strong> __VERSION__</p>
-        <p><strong>environment</strong> __NODE_ENV__</p>
+        <p><strong>version</strong> <%= __VERSION__%></p>
+        <p><strong>environment</strong> <%= __NODE_ENV__%></p>
 
         <div id="app"></div>
         <% if(__PRODUCTION__){ %>
