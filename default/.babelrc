@@ -5,7 +5,6 @@
               "browsers": ["last 2 versions", "safari >= 10"]
           }
       }],
-      "stage-0",
       "airbnb"
   ],
   "plugins": [ "transform-class-properties" ]
