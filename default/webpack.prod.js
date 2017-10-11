@@ -1,11 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
 
 const {
-    PATH_SOURCE,
     PATH_DIST,
+    PATH_DLL,
+    PATH_SOURCE,
     VERSION,
 } = require('./webpack.config');
 
@@ -13,16 +14,32 @@ module.exports = {
     cache: true,
     devtool: 'cheap-module-source-map',
     target: 'web',
+
     entry: {
         app: [path.join(__dirname, PATH_SOURCE, 'vendors.js'), path.join(__dirname, PATH_SOURCE, 'index.js')],
     },
+
     output: {
         path: path.join(__dirname, PATH_DIST),
         filename: '[name].min.js',
         chunkFilename: '[name].min.js',
     },
+
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['react'],
+                },
+            },
+        ],
+    },
+
     plugins: [
-        new CleanWebpackPlugin([PATH_DIST]),
+        new CleanWebpackPlugin([PATH_DIST, PATH_DLL]),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -36,28 +53,11 @@ module.exports = {
             template: `${PATH_SOURCE}/index.ejs`,
             inject: false,
             minify: {
-                collapseWhitespace: true,
                 collapseInlineTagWhitespace: true,
+                collapseWhitespace: true,
+                minifyCSS: true,
             },
         }),
         new webpack.optimize.UglifyJsPlugin(),
     ],
-    module: {
-        rules: [
-            {
-                test: /(\.jsx|\.js)$/,
-                loader: 'babel-loader',
-                include: [
-                    path.join(__dirname, PATH_SOURCE),
-                ],
-                query: {
-                    cacheDirectory: true,
-                    plugins: ['transform-class-properties'],
-                },
-            },
-        ],
-    },
-    resolve: {
-        extensions: ['.js'],
-    },
 };
