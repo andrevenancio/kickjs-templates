@@ -4,36 +4,36 @@
   "author": "",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": "https://github.com/andrevenancio/kickjs-templates",
   "main": "src/index.js",
   "scripts": {
     "compile:dll": "webpack --config webpack.dll.js",
-    "build": "export NODE_ENV=production&&webpack --config webpack.prod.js",
-    "start": "export NODE_ENV=development&&npm run compile:dll && webpack-dev-server --env dev --config webpack.dev.js --progress --colors --watch --host 0.0.0.0 --open",
+    "compile:dev": "webpack-dev-server --config webpack.dev.js --progress --colors --watch --open",
+    "compile:prd": "webpack --config webpack.prod.js",
+    "build": "export NODE_ENV=production&&npm run compile:prd",
+    "start": "export NODE_ENV=development&&npm run compile:dll&&npm run compile:dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^4.6.1",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-loader": "^1.9.0",
+    "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
-    "webpack-dev-server": "^2.7.1"
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint": "^4.8.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.17",
+    "electron": "^1.7.8",
+    "html-webpack-harddisk-plugin": "^0.1.0",
     "html-webpack-plugin": "^2.30.1",
-    "react-dom": "^15.6.1",
-    "react": "^15.6.1",
-    "webpack": "^3.5.6"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.6.0",
+    "write-file-webpack-plugin": "^4.2.0"
   }
 }

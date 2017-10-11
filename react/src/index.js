@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import Application from './views/app';
 
 const lib = 'color:#666;font-size:x-small;font-weight:bold;';
