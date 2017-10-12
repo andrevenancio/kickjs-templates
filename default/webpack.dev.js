@@ -1,8 +1,6 @@
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-const WriteFilePlugin = require('write-file-webpack-plugin');
 
 const {
     PATH_DIST,
@@ -55,8 +53,6 @@ module.exports = {
             filename: 'index.html',
             template: 'src/index.ejs',
             inject: false,
-            alwaysWriteToDisk: true,
         }),
-        new HtmlWebpackHarddiskPlugin(),
     ],
 };
