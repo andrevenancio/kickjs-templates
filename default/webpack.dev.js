@@ -48,7 +48,6 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.IgnorePlugin(new RegExp('^(fs|ipc)$')),
-        new WriteFilePlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.ejs',
