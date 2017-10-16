@@ -2,6 +2,7 @@
 This repository handles the factory templates for [kickjs](https://www.npmjs.com/package/kickjs).
 
 ## Templates
+
 | Template                                              | default       | react         | electron      |
 | ----------------------------------------------------- |:-------------:| -------------:|
 | [babel](https://www.npmjs.com/package/Babel)          | ‎✔             | ‎✔             | ‎✔             |

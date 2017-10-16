@@ -39,7 +39,7 @@ module.exports = {
     },
 
     plugins: [
-        new CleanWebpackPlugin([PATH_DIST, PATH_DLL]),
+        new CleanWebpackPlugin([PATH_DIST, PATH_DLL], { verbose: false }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV),
@@ -53,7 +53,7 @@ module.exports = {
             template: `${PATH_SOURCE}/index.ejs`,
             inject: false,
             minify: {
-                collapseInlineTagWhitespace: true,
+                collapseInlineTagWhitespace: false,
                 collapseWhitespace: true,
                 minifyCSS: true,
             },

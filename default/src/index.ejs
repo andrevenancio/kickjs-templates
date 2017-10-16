@@ -23,17 +23,17 @@
     </head>
     <body>
         <h1><a href="//www.npmjs.com/package/kickjs">kickjs</a></h1>
-        <p><strong>project: </strong> __TITLE__</p>
-        <p><strong>template: </strong> default</p>
-        <p><strong>version: </strong> <%= __VERSION__%></p>
-        <p><strong>environment: </strong> <%= __NODE_ENV__%></p>
+        <p><strong>project:</strong> __TITLE__</p>
+        <p><strong>template:</strong> default</p>
+        <p><strong>version:</strong> <%= __VERSION__%></p>
+        <p><strong>environment:</strong> <%= __NODE_ENV__%></p>
 
         <div id="app"></div>
         <% if(__PRODUCTION__){ %>
-        <script src="/app.min.js"></script>
+        <script src="app.min.js"></script>
         <% } else{ %>
-        <script src="/dll.vendor.js"></script>
-        <script src="/app.js"></script>
+        <script src="dll.vendor.js"></script>
+        <script src="app.js"></script>
         <% } %>
     </body>
 </html>
