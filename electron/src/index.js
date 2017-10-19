@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Application from './views/app';
+import './style.scss';
 
 const lib = 'color:#666;font-size:x-small;font-weight:bold;';
 const parameters = 'color:#777;font-size:x-small';

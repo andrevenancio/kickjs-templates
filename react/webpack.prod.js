@@ -1,4 +1,5 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -35,6 +36,14 @@ module.exports = {
                     presets: ['react'],
                 },
             },
+
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader'],
+                }),
+            },
         ],
     },
 
@@ -48,6 +57,7 @@ module.exports = {
             __NODE_ENV__: JSON.stringify(process.env.NODE_ENV),
             __PRODUCTION__: process.env.NODE_ENV === 'production',
         }),
+        new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: `${PATH_SOURCE}/index.ejs`,
@@ -58,6 +68,6 @@ module.exports = {
                 minifyCSS: true,
             },
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({ comments: false }),
     ],
 };

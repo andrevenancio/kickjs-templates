@@ -1,0 +1,21 @@
+$color-background: #222;
+$color-font: #ccc;
+$color-link: #fff;
+
+body {
+    margin: 20px;
+    background-color: $color-background;
+    color: $color-font;
+    font-family: sans-serif;
+    font-size: 12px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    p {
+        margin: 2px;
+    }
+
+    a {
+        color: $color-link;
+    }
+}
