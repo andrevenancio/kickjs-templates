@@ -7,5 +7,5 @@
       }],
       "airbnb"
   ],
-  "plugins": []
+  "plugins": ["transform-class-properties"]
 }
