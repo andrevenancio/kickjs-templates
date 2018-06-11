@@ -1,11 +1,7 @@
-$color-background: #222;
-$color-font: #ccc;
-$color-link: #fff;
-
 body {
     margin: 20px;
-    background-color: $color-background;
-    color: $color-font;
+    background-color: #222;
+    color: #ccc;
     font-family: sans-serif;
     font-size: 12px;
     -moz-osx-font-smoothing: grayscale;
@@ -16,6 +12,6 @@ body {
     }
 
     a {
-        color: $color-link;
+        color: #fff;
     }
 }

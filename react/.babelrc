@@ -1,11 +1,14 @@
 {
-  "presets": [
-      ["env", {
-          "targets": {
-              "browsers": ["last 2 versions", "safari >= 10"]
-          }
-      }],
-      "airbnb"
-  ],
-  "plugins": ["transform-class-properties"]
+    "presets": [
+        "react",
+        ["env", {
+            "modules": false,
+            "targets": {
+                "node": "current"
+            }
+        }]
+    ],
+    "plugins": [
+        "transform-class-properties"
+    ]
 }

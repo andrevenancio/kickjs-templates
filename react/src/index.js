@@ -1,8 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Application from './views/app';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-import './style.scss';
+import config from './store/config';
+import { actionAppInit } from './store/app/actions';
+import { makeStateImmutable } from './store/utils';
+import Application from './app';
+
+import './style.css';
 
 const lib = 'color:#666;font-size:x-small;font-weight:bold;';
 const parameters = 'color:#777;font-size:x-small';
@@ -10,17 +15,28 @@ const values = 'color:#f33;font-size:x-small';
 const version = __VERSION__;
 const node = __NODE_ENV__;
 
-global.window.version = () => {
+global.window.printVersion = () => {
     const args = [
-        `%c__TITLE__\n%cversion: %c${version}\n%cenvironment: %c${node}`,
+        `%c__TITLE__ \n%cversion: %c${version} \n%cnode: %c${node}`,
         lib, parameters, values, parameters, values,
     ];
 
-    return console.log(...args);
+    console.log(...args);
 };
 
 if (node !== 'production') {
-    global.window.version();
+    global.window.printVersion();
 }
 
-ReactDOM.render(<Application />, document.getElementById('app'));
+const store = config({
+    initialState: makeStateImmutable({}),
+});
+
+render(
+    <Provider store={store}>
+        <Application />
+    </Provider>
+    , document.getElementById('app'),
+);
+
+store.dispatch(actionAppInit());
